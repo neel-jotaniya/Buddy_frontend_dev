@@ -97,7 +97,9 @@ const ProductDetailsOne = () => {
         <div style={showDiscountCodePopup ? blurred : {}}>
             <section className="product-details py-80">
                 <div className="container container-lg">
-                    <div className="row gy-4">
+                    {/* <div className="row gy-4 align-items-start"> */}
+                    <div className="row gy-4 d-flex flex-wrap align-items-start">
+
                         <div className="col-lg-9">
                             <div className="row gy-4">
                                 <div className="col-xl-6">
@@ -145,7 +147,7 @@ const ProductDetailsOne = () => {
                                                     </span>
                                                 </div>
                                                 <span className="text-sm fw-medium text-neutral-600">
-                                                    4.7 Star Rating
+                                                    4.7 Star Ratinggggg
                                                 </span>
                                                 <span className="text-sm fw-medium text-gray-500">
                                                     (21,671)
@@ -184,9 +186,9 @@ const ProductDetailsOne = () => {
                                                 className="progress w-100 bg-gray-100 rounded-pill h-8"
                                                 role="progressbar"
                                                 aria-label="Basic example"
-                                                aria-valuenow={product?.remainingCoupons}
+                                                aria-valuenow={(product?.remainingCoupons / product?.totalCoupons) * 100}
                                                 aria-valuemin={0}
-                                                aria-valuemax={product?.totalCoupons}
+                                                aria-valuemax={100}
                                             >
                                                 <div
                                                     className="progress-bar bg-main-two-600 rounded-pill"

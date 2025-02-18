@@ -113,97 +113,100 @@ const FeatureOne = () => {
                     </div>
                     <div className="feature-item-wrapper">
                         <Slider {...settings}>
-                            <div className="feature-item text-center">
+                            <div className="feature-item text-center" >
                                 <div className="feature-item__thumb rounded-circle">
                                     <Link to="/shop" className="w-100 h-100 flex-center">
                                         {/* <img src="assets/images/thumbs/feature-img1.png" alt="" /> */}
-                                        <img src="assets/images/temp/vegetables.webp" alt="" />
+                                        <img class="rounded-circle img-fluid" width="80%" height="80%" src="assets/images/temp/bms.png" alt="" />
                                     </Link>
                                 </div>
                                 <div className="feature-item__content mt-16">
                                     <h6 className="text-lg mb-8">
                                         <Link to="/shop" className="text-inherit">
-                                            Vegetables
+                                            BookMyShow
                                         </Link>
                                     </h6>
-                                    <span className="text-sm text-gray-400">125+ Products</span>
+                                    {/* <span className="text-sm text-gray-400">125+ Products</span> */}
                                 </div>
                             </div>
                             <div className="feature-item text-center">
                                 <div className="feature-item__thumb rounded-circle">
                                     <Link to="/shop" className="w-100 h-100 flex-center">
-                                        <img src="assets/images/thumbs/feature-img2.png" alt="" />
+                                        {/* <img src="assets/images/thumbs/feature-img2.png" alt="" /> */}
+                                        <img class="rounded-circle img-fluid" width="80%" height="80%" src="assets/images/temp/mmt.png" alt="" />
                                     </Link>
                                 </div>
                                 <div className="feature-item__content mt-16">
                                     <h6 className="text-lg mb-8">
                                         <Link to="/shop" className="text-inherit">
-                                            Fish &amp; Meats
+                                            Make My Trip
                                         </Link>
                                     </h6>
-                                    <span className="text-sm text-gray-400">125+ Products</span>
+                                    {/* <span className="text-sm text-gray-400">125+ Products</span> */}
                                 </div>
                             </div>
                             <div className="feature-item text-center">
                                 <div className="feature-item__thumb rounded-circle">
                                     <Link to="/shop" className="w-100 h-100 flex-center">
-                                        <img src="assets/images/thumbs/feature-img3.png" alt="" />
+                                        {/* <img src="assets/images/thumbs/feature-img3.png" alt="" /> */}
+                                        <img class="rounded-circle img-fluid" width="80%" height="80%" src="assets/images/temp/nykaa.jpg" alt="" />
                                     </Link>
                                 </div>
                                 <div className="feature-item__content mt-16">
                                     <h6 className="text-lg mb-8">
                                         <Link to="/shop" className="text-inherit">
-                                            Desserts
+                                            Nykaa
                                         </Link>
                                     </h6>
-                                    <span className="text-sm text-gray-400">125+ Products</span>
+                                    {/* <span className="text-sm text-gray-400">125+ Products</span> */}
                                 </div>
                             </div>
                             <div className="feature-item text-center">
                                 <div className="feature-item__thumb rounded-circle">
                                     <Link to="/shop" className="w-100 h-100 flex-center">
-                                        <img src="assets/images/temp/vegetable-101x96.png" alt="" />
+                                        <img class="rounded-circle img-fluid" width="80%" height="80%" src="assets/images/temp/myntra.jpg" alt="" />
                                         {/* <img src="assets/images/thumbs/feature-img4.png" alt="" /> */}
                                     </Link>
                                 </div>
                                 <div className="feature-item__content mt-16">
                                     <h6 className="text-lg mb-8">
                                         <Link to="/shop" className="text-inherit">
-                                            Drinks &amp; Juice
+                                            Myntra
                                         </Link>
                                     </h6>
-                                    <span className="text-sm text-gray-400">125+ Products</span>
+                                    {/* <span className="text-sm text-gray-400">125+ Products</span> */}
                                 </div>
                             </div>
                             <div className="feature-item text-center">
                                 <div className="feature-item__thumb rounded-circle">
                                     <Link to="/shop" className="w-100 h-100 flex-center">
-                                        <img src="assets/images/temp/vegetabke-111x64.png" alt="" />
+                                        <img class="rounded-circle img-fluid" width="80%" height="80%" src="assets/images/temp/fc.jpg" alt="" />
                                         {/* <img src="assets/images/thumbs/feature-img5.png" alt="" /> */}
                                     </Link>
                                 </div>
                                 <div className="feature-item__content mt-16">
                                     <h6 className="text-lg mb-8">
                                         <Link to="/shop" className="text-inherit">
-                                            Animals Food
+                                            Flipkart
                                         </Link>
                                     </h6>
-                                    <span className="text-sm text-gray-400">125+ Products</span>
+                                    {/* <span className="text-sm text-gray-400">125+ Products</span> */}
                                 </div>
                             </div>
                             <div className="feature-item text-center">
                                 <div className="feature-item__thumb rounded-circle">
                                     <Link to="/shop" className="w-100 h-100 flex-center">
-                                        <img src="assets/images/thumbs/feature-img6.png" alt="" />
+                                        {/* <img src="assets/images/thumbs/feature-img6.png" alt="" /> */}
+                                        <img class="rounded-circle img-fluid" width="80%" height="80%" src="assets/images/temp/amazone.jpg" alt="" />
                                     </Link>
                                 </div>
                                 <div className="feature-item__content mt-16">
                                     <h6 className="text-lg mb-8">
                                         <Link to="/shop" className="text-inherit">
-                                            Fresh Fruits
+                                            Amazon
                                         </Link>
                                     </h6>
-                                    <span className="text-sm text-gray-400">125+ Products</span>
+                                    {/* <span className="text-sm text-gray-400">125+ Products</span> */}
                                 </div>
                             </div>
                             <div className="feature-item text-center">

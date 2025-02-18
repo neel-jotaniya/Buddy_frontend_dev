@@ -80,7 +80,7 @@ const BannerOne = () => {
                                     </div>
                                     <div className="banner-item__thumb">
                                         {/* <img src="assets/images/thumbs/banner-img1.png" alt="" /> */}
-                                        <img src="assets/images/temp/grocery.webp" alt="" />
+                                        <img src="assets/images/temp/banner-good.png" alt="" />
                                     </div>
                                 </div>
                             </div>
