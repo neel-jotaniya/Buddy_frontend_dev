@@ -100,7 +100,7 @@ const HotDealsOne = () => {
                                 className="position-absolute inset-block-start-0 inset-inline-start-0 z-n1 w-100 h-100 opacity-6"
                             />
                             <div className="hot-deals__thumb">
-                                <img src="assets/images/temp/vege.png" alt="" />
+                                <img src="assets/images/temp/banner-good.png" alt="" />
                                 {/* <img src="assets/images/thumbs/hot-deals-img.png" alt="" /> */}
                             </div>
                             <div className="py-xl-4">
