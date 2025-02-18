@@ -66,7 +66,8 @@ const PromotionalOne = () => {
                     <div className="col-xl-3 col-sm-6 col-xs-6">
                         <div className="promotional-banner-item position-relative rounded-24 overflow-hidden z-1">
                             <img
-                                src="assets/images/temp/banner-good.png"
+                                // src="assets/images/temp/promotion-good.png"
+                                // src="assets/images/temp/banner-good.png"
                                 // src="assets/images/thumbs/promotional-banner-img2.png"
                                 alt=""
                                 width="100"
@@ -77,7 +78,8 @@ const PromotionalOne = () => {
                                     Daily Fresh Vegetables
                                 </h6>
                                 <Link
-                                    to="/shop"
+                                    // to="/shop"
+                                    to="#"
                                     className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8 mt-24"
                                 >
                                     Shop Now
@@ -91,7 +93,7 @@ const PromotionalOne = () => {
                     <div className="col-xl-3 col-sm-6 col-xs-6">
                         <div className="promotional-banner-item position-relative rounded-24 overflow-hidden z-1">
                             <img
-                                src="assets/images/temp/promotion2.png"
+                                // src="assets/images/temp/promotion2.png"
                                 // src="assets/images/thumbs/promotional-banner-img3.png"
                                 alt=""
                                 className="position-absolute inset-block-start-0 inset-inline-start-0 w-100 h-100 object-fit-cover z-n1"
@@ -101,7 +103,8 @@ const PromotionalOne = () => {
                                     Everyday Fresh Milk
                                 </h6>
                                 <Link
-                                    to="/shop"
+                                    // to="/shop"
+                                    tp="#"
                                     className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8 mt-24"
                                 >
                                     Shop Now
@@ -115,7 +118,7 @@ const PromotionalOne = () => {
                     <div className="col-xl-3 col-sm-6 col-xs-6">
                         <div className="promotional-banner-item position-relative rounded-24 overflow-hidden z-1">
                             <img
-                                src="assets/images/thumbs/promotional-banner-img4.png"
+                                // src="assets/images/thumbs/promotional-banner-img4.png"
                                 alt=""
                                 className="position-absolute inset-block-start-0 inset-inline-start-0 w-100 h-100 object-fit-cover z-n1"
                             />
@@ -124,7 +127,8 @@ const PromotionalOne = () => {
                                     Everyday Fresh Fruits
                                 </h6>
                                 <Link
-                                    to="/shop"
+                                    // to="/shop"
+                                    to="#"
                                     className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8 mt-24"
                                 >
                                     Shop Now

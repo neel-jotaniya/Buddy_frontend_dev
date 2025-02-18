@@ -80,7 +80,7 @@ const HomePageOne = () => {
       <ShortProductOne />
 
       {/* BrandOne */}
-      <BrandOne />
+      {/* <BrandOne /> */}
 
       {/* NewArrivalOne */}
       <NewArrivalOne />

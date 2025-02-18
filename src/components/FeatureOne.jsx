@@ -129,6 +129,23 @@ const FeatureOne = () => {
                                     {/* <span className="text-sm text-gray-400">125+ Products</span> */}
                                 </div>
                             </div>
+                            
+                            <div className="feature-item text-center">
+                                <div className="feature-item__thumb rounded-circle">
+                                    <Link to="/shop" className="w-100 h-100 flex-center">
+                                        {/* <img src="assets/images/thumbs/feature-img3.png" alt="" /> */}
+                                        <img class="rounded-circle img-fluid" width="80%" height="80%" src="assets/images/temp/nykaa.png" alt="" />
+                                    </Link>
+                                </div>
+                                <div className="feature-item__content mt-16">
+                                    <h6 className="text-lg mb-8">
+                                        <Link to="/shop" className="text-inherit">
+                                            Nykaa
+                                        </Link>
+                                    </h6>
+                                    {/* <span className="text-sm text-gray-400">125+ Products</span> */}
+                                </div>
+                            </div>
                             <div className="feature-item text-center">
                                 <div className="feature-item__thumb rounded-circle">
                                     <Link to="/shop" className="w-100 h-100 flex-center">
@@ -140,22 +157,6 @@ const FeatureOne = () => {
                                     <h6 className="text-lg mb-8">
                                         <Link to="/shop" className="text-inherit">
                                             Make My Trip
-                                        </Link>
-                                    </h6>
-                                    {/* <span className="text-sm text-gray-400">125+ Products</span> */}
-                                </div>
-                            </div>
-                            <div className="feature-item text-center">
-                                <div className="feature-item__thumb rounded-circle">
-                                    <Link to="/shop" className="w-100 h-100 flex-center">
-                                        {/* <img src="assets/images/thumbs/feature-img3.png" alt="" /> */}
-                                        <img class="rounded-circle img-fluid" width="80%" height="80%" src="assets/images/temp/nykaa.jpg" alt="" />
-                                    </Link>
-                                </div>
-                                <div className="feature-item__content mt-16">
-                                    <h6 className="text-lg mb-8">
-                                        <Link to="/shop" className="text-inherit">
-                                            Nykaa
                                         </Link>
                                     </h6>
                                     {/* <span className="text-sm text-gray-400">125+ Products</span> */}

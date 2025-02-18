@@ -30,7 +30,7 @@ const SamplePrevArrow = memo(function SamplePrevArrow(props) {
     );
 });
 
-const FlashSalesOne = () => {
+const   FlashSalesOne = () => {
 
 
     const settings = {
@@ -73,7 +73,8 @@ const FlashSalesOne = () => {
                         <h5 className="mb-0">Flash Sales Today</h5>
                         <div className="flex-align gap-16 mr-point">
                             <Link
-                                to="/shop"
+                                // to="/shop"
+                                to="#"
                                 className="text-sm fw-medium text-gray-700 hover-text-main-600 hover-text-decoration-underline"
                             >
                                 View All Deals
@@ -92,11 +93,12 @@ const FlashSalesOne = () => {
                                     className="position-absolute inset-block-start-0 inset-inline-start-0 w-100 h-100 object-fit-cover z-n1 flash-sales-item__bg"
                                 />
                                 <div className="flash-sales-item__thumb d-sm-block d-none">
-                                    <img src="assets/images/temp/snack.png" alt="" />
+                                    {/* <img src="assets/images/temp/snack.png" alt="" /> */}
+                                    <img class="rounded img-fluid" width="400" height="300" src="assets/images/temp/snack.png" alt="" />
                                     {/* <img src="assets/images/thumbs/flash-sale-img1.png" alt="" /> */}
                                 </div>
                                 <div className="flash-sales-item__content ms-sm-auto">
-                                    <h6 className="text-32 mb-20">Fresh Vegetables</h6>
+                                    <h6 className="text-32 mb-20">Daily Snacks</h6>
                                     <div className="countdown" id="countdown1">
                                         <ul className="countdown-list flex-align flex-wrap">
                                             <li className="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
@@ -118,7 +120,8 @@ const FlashSalesOne = () => {
                                         </ul>
                                     </div>
                                     <Link
-                                        to="/shop"
+                                        // to="/shop"
+                                        to="#"
                                         className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8 mt-24"
                                     >
                                         Shop Now
@@ -138,10 +141,10 @@ const FlashSalesOne = () => {
                                 />
                                 <div className="flash-sales-item__thumb d-sm-block d-none">
                                     {/* <img src="assets/images/thumbs/flash-sale-img2.png" alt="" /> */}
-                                    <img src="assets/images/temp/snack.png" alt="" />
+                                    <img class="rounded img-fluid" width="400" height="300" src="assets/images/temp/sweets.jpg" alt="" />
                                 </div>
                                 <div className="flash-sales-item__content ms-sm-auto">
-                                    <h6 className="text-32 mb-20">Daily Snacks</h6>
+                                    <h6 className="text-32 mb-20">Delicious Sweets</h6>
                                     <div className="countdown" id="countdown2">
                                         <ul className="countdown-list flex-align flex-wrap">
                                             <li className="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
@@ -163,7 +166,8 @@ const FlashSalesOne = () => {
                                         </ul>
                                     </div>
                                     <Link
-                                        to="/shop"
+                                        // to="/shop"
+                                        to="#"
                                         className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8 mt-24"
                                     >
                                         Shop Now
@@ -183,10 +187,10 @@ const FlashSalesOne = () => {
                                 />
                                 <div className="flash-sales-item__thumb d-sm-block d-none">
                                     {/* <img src="assets/images/thumbs/flash-sale-img2.png" alt="" /> */}
-                                    <img src="assets/images/temp/snack.png" alt="" />
+                                    <img class="rounded img-fluid" width="400" height="300" src="assets/images/temp/fastfood.jpg" alt="" />
                                 </div>
                                 <div className="flash-sales-item__content ms-sm-auto">
-                                    <h6 className="text-32 mb-20">Daily Snacks</h6>
+                                    <h6 className="text-32 mb-20">Fastfood</h6>
                                     <div className="countdown" id="countdown3">
                                         <ul className="countdown-list flex-align flex-wrap">
                                             <li className="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium">
@@ -208,7 +212,8 @@ const FlashSalesOne = () => {
                                         </ul>
                                     </div>
                                     <Link
-                                        to="/shop"
+                                        // to="/shop"
+                                        to="#"
                                         className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8 mt-24"
                                     >
                                         Shop Now

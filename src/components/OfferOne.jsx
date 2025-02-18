@@ -49,7 +49,7 @@ const OfferOne = () => {
                                 className="position-absolute inset-block-start-0 inset-inline-start-0 z-n1 w-100 h-100 opacity-6"
                             />
                             <div className="offer-card__thumb d-lg-block d-none">
-                                <img class="rounded img-fluid" width="320" height="194" src="assets/images/temp/movie.jpg" alt="" />
+                                <img class="rounded " width="320" height="194" src="assets/images/temp/movie.jpg" alt="" />
                                 {/* <img src="assets/images/thumbs/offer-img2.png" alt="" /> */}
                             </div>
                             <div className="py-xl-4">
@@ -57,7 +57,7 @@ const OfferOne = () => {
                                     {/* <img className="rounded-circle" width="100%" height="100%" src="assets/images/temp/bms.png" alt="" /> */}
                                     <img className="rounded-circle" src="assets/images/temp/mmt.png" alt="" />
                                 </div>
-                                <h4 className="text-white mb-8">$5 off your first order</h4>
+                                <h4 className="text-white mb-8">200 Off on movie ticket</h4>
                                 <div className="flex-align gap-8">
                                     <span className="text-sm text-white">Delivery by 6:15am</span>
                                     <span className="text-sm text-main-two-600">expired Aug 5</span>
