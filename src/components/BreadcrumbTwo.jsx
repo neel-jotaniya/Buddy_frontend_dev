@@ -34,7 +34,7 @@ const BreadcrumbTwo = () => {
                         <li className="flex-align text-gray-500">
                             <i className="ph ph-caret-right" />
                         </li>
-                        <li className="text-sm text-neutral-600">Lay's Potato Chips</li>
+                        <li className="text-sm text-neutral-600">Product</li>
                     </ul>
                 </div>
             </div>

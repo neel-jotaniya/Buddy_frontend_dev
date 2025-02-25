@@ -31,7 +31,7 @@ const ProductDetailsPageOne = () => {
       <HeaderOne />
 
       {/* Breadcrumb */}
-      <BreadcrumbTwo title={"Product Details"} />
+      {/* <BreadcrumbTwo title={"Product Details"} /> */}
 
       {/* ProductDetailsOne */}
       <ProductDetailsOne />

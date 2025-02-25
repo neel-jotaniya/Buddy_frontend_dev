@@ -14,7 +14,8 @@ const DiscountCodePopup = ({ onClose, productId, setProduct, product }) => {
             `/api/v1/discounts/products/discount/${productId}`, 
             { withCredentials: true }
         );
-
+        console.log(response);
+        
         setDiscountCode(response.data.code);
         setIsCodeRevealed(true);
 
@@ -28,6 +29,8 @@ const DiscountCodePopup = ({ onClose, productId, setProduct, product }) => {
         });
 
     } catch (error) {
+      console.log(error);
+      
         if (error.response && error.response.status === 401) {
             const currentPath = window.location.pathname + window.location.search;
 

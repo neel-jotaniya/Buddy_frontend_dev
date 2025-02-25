@@ -4651,7 +4651,7 @@ const RecommendedOne = () => {
                                 <div key={index}>
                                     <div className="product-card px-4 py-4 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
                                         <Link
-                                            to="/product-details"
+                                            to="/product-details-coupon"
                                             key={index}
                                             state={{ product: discount }}
                                             className="product-card__thumb flex-center"
