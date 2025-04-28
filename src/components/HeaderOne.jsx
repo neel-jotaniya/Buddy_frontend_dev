@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import query from "jquery";
 import { Link, NavLink } from "react-router-dom";
+import SearchComponent from "./SearchComponent";
+import useAuthStore from "../store/authStore";
 
 const HeaderOne = () => {
   const [scroll, setScroll] = useState(false);
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const isLoading = useAuthStore((state) => state.isLoading);
+  const user = useAuthStore((state) => state.user);
   useEffect(() => {
+
     window.onscroll = () => {
       if (window.pageYOffset < 150) {
         setScroll(false);
@@ -68,7 +74,7 @@ const HeaderOne = () => {
         className={`side-overlay ${(menuActive || activeCategory) && "show"}`}
       />
       {/* ==================== Search Box Start Here ==================== */}
-      <form action='#' className={`search-box ${activeSearch && "active"}`}>
+      <div className={`search-box ${activeSearch && "active"}`}>
         <button
           onClick={handleSearchToggle}
           type='button'
@@ -77,22 +83,9 @@ const HeaderOne = () => {
           <i className='ph ph-x' />
         </button>
         <div className='container'>
-          <div className='position-relative'>
-            <input
-              type='text'
-              className='form-control py-16 px-24 text-xl rounded-pill pe-64'
-              placeholder='Search for a product or brand'
-            />
-            <button
-              type='submit'
-              className='w-48 h-48 bg-main-600 rounded-circle flex-center text-xl text-white position-absolute top-50 translate-middle-y inset-inline-end-0 me-8'
-            >
-              {/* <i className='ph ph-magnifying-glass' /> */}
-              ohhhh
-            </button>
-          </div>
+          <SearchComponent />
         </div>
-      </form>
+      </div>
       {/* ==================== Search Box End Here ==================== */}
       {/* ==================== Mobile Menu Start Here ==================== */}
       <div
@@ -181,7 +174,7 @@ const HeaderOne = () => {
                 >
                   <li className='common-dropdown__item nav-submenu__item'>
                     <Link
-                      to='/shop'
+                      to='/#'
                       className='common-dropdown__link nav-submenu__link hover-bg-neutral-100'
                       onClick={() => setActiveIndex(null)}
                     >
@@ -388,7 +381,7 @@ const HeaderOne = () => {
               </li>
 
               {/* Login Menu */}
-              <li className='nav-menu__item'>
+              {isLoading ? "loading" : !isAuthenticated && <li className='nav-menu__item'>
                 <Link
                   to='/login'
                   className='nav-menu__link'
@@ -396,10 +389,10 @@ const HeaderOne = () => {
                 >
                   Login
                 </Link>
-              </li>
+              </li>}
 
               {/* register Menu */}
-              <li className='nav-menu__item'>
+              {isLoading ? "loading" : !isAuthenticated && <li className='nav-menu__item'>
                 <Link
                   to='/register'
                   className='nav-menu__link'
@@ -407,7 +400,7 @@ const HeaderOne = () => {
                 >
                   Register
                 </Link>
-              </li>
+              </li>}
               
             </ul>
             {/* Nav Menu End */}
@@ -700,11 +693,15 @@ const HeaderOne = () => {
             <form
               action='#'
               className='flex-align flex-wrap form-location-wrapper'
+              style={{ width: "100%"}}
             >
-              <div className='search-category d-flex h-48 select-border-end-0 radius-end-0 search-form d-sm-flex d-none'>
-                <select
+              <div className='search-category d-flex h-48 select-border-end-0 radius-end-0 search-form d-sm-flex d-none width-max'
+                style={{ width: "70%", margin:'auto', border: "1px solid gray", borderRadius: "10px"}}
+              >
+                {/* <select
                   defaultValue={1}
-                  className='js-example-basic-single border border-gray-200 border-end-0'
+                  // className='js-example-basic-single width-max border border-gray-200 border-end-0'
+                  className="js-example-basic-single width-max border border-gray-200 border-end-0"
                   name='state'
                 >
                   <option value={1}>All Categories</option>
@@ -718,22 +715,14 @@ const HeaderOne = () => {
                   <option value={1}>Fronzen Foods</option>
                   <option value={1}>Noodles &amp; Rice</option>
                   <option value={1}>Ice Cream</option>
-                </select>
-                <div className='search-form__wrapper position-relative'>
-                  <input
-                    type='text'
-                    className='search-form__input common-input py-13 ps-16 pe-18 rounded-end-pill pe-44'
-                    placeholder='Search for a product or brand'
-                  />
-                  <button
-                    type='submit'
-                    className='w-32 h-32 bg-main-600 rounded-circle flex-center text-xl text-white position-absolute top-50 translate-middle-y inset-inline-end-0 me-8'
-                  >
-                    <i className='ph ph-magnifying-glass' />
-                  </button>
+                </select> */}
+                <div className='search-form__wrapper position-relative'
+                  style={{ width: "100%"}}
+                >
+                  <SearchComponent />
                 </div>
               </div>
-              <div className='location-box bg-white flex-align gap-8 py-6 px-16 rounded-pill border border-gray-100'>
+              {/* <div className='location-box bg-white flex-align gap-8 py-6 px-16 rounded-pill border border-gray-100'>
                 <span className='text-gray-900 text-xl d-xs-flex d-none'>
                   <i className='ph ph-map-pin' />
                 </span>
@@ -761,7 +750,7 @@ const HeaderOne = () => {
                     </select>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </form>
             {/* form location start */}
             {/* Header Middle Right start */}
@@ -775,7 +764,7 @@ const HeaderOne = () => {
                     <i className='ph ph-magnifying-glass' />
                   </span>
                 </button>
-                <Link to='/wishlist' className='flex-align gap-4 item-hover'>
+                <Link to='/#' className='flex-align gap-4 item-hover'>
                   <span className='text-2xl text-gray-700 d-flex position-relative me-6 mt-6 item-hover__text'>
                     <i className='ph ph-heart' />
                     <span className='w-16 h-16 flex-center rounded-circle bg-main-600 text-white text-xs position-absolute top-n6 end-n4'>
@@ -786,7 +775,7 @@ const HeaderOne = () => {
                     Wishlist
                   </span>
                 </Link>
-                <Link to='/cart' className='flex-align gap-4 item-hover'>
+                <Link to='/#' className='flex-align gap-4 item-hover'>
                   <span className='text-2xl text-gray-700 d-flex position-relative me-6 mt-6 item-hover__text'>
                     <i className='ph ph-shopping-cart-simple' />
                     <span className='w-16 h-16 flex-center rounded-circle bg-main-600 text-white text-xs position-absolute top-n6 end-n4'>
@@ -881,28 +870,28 @@ const HeaderOne = () => {
                         </h6>
                         <ul className='submenus-submenu__list max-h-300 overflow-y-auto scroll-sm'>
                           <li>
-                            <Link to='/shop'>Potato &amp; Tomato 000</Link>
+                            <Link to='/#'>Potato &amp; Tomato 000</Link>
                           </li>
                           <li>
-                            <Link to='/shop'>Cucumber &amp; Capsicum</Link>
+                            <Link to='/#'>Cucumber &amp; Capsicum</Link>
                           </li>
                           <li>
-                            <Link to='/shop'>Leafy Vegetables</Link>
+                            <Link to='/#'>Leafy Vegetables</Link>
                           </li>
                           <li>
-                            <Link to='/shop'>Root Vegetables</Link>
+                            <Link to='/#'>Root Vegetables</Link>
                           </li>
                           <li>
-                            <Link to='/shop'>Beans &amp; Okra</Link>
+                            <Link to='/#'>Beans &amp; Okra</Link>
                           </li>
                           <li>
-                            <Link to='/shop'>Cabbage &amp; Cauliflower</Link>
+                            <Link to='/#'>Cabbage &amp; Cauliflower</Link>
                           </li>
                           <li>
-                            <Link to='/shop'>Gourd &amp; Drumstick</Link>
+                            <Link to='/#'>Gourd &amp; Drumstick</Link>
                           </li>
                           <li>
-                            <Link to='/shop'>Specialty</Link>
+                            <Link to='/#'>Specialty</Link>
                           </li>
                         </ul>
                       </div>
@@ -935,22 +924,22 @@ const HeaderOne = () => {
                         </h6>
                         <ul className='submenus-submenu__list max-h-300 overflow-y-auto scroll-sm'>
                           <li>
-                            <Link to='/shop'>Soda &amp; Cocktail Mix </Link>
+                            <Link to='/#'>Soda &amp; Cocktail Mix </Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Sports &amp; Energy Drinks</Link>
+                            <Link to='/#'> Sports &amp; Energy Drinks</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Non Alcoholic Drinks</Link>
+                            <Link to='/#'> Non Alcoholic Drinks</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Packaged Water </Link>
+                            <Link to='/#'> Packaged Water </Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Spring Water</Link>
+                            <Link to='/#'> Spring Water</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Flavoured Water </Link>
+                            <Link to='/#'> Flavoured Water </Link>
                           </li>
                         </ul>
                       </div>
@@ -983,16 +972,16 @@ const HeaderOne = () => {
                         </h6>
                         <ul className='submenus-submenu__list max-h-300 overflow-y-auto scroll-sm'>
                           <li>
-                            <Link to='/shop'> Fresh Meat </Link>
+                            <Link to='/#'> Fresh Meat </Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Frozen Meat</Link>
+                            <Link to='/#'> Frozen Meat</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Marinated Meat</Link>
+                            <Link to='/#'> Marinated Meat</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Fresh &amp; Frozen Meat</Link>
+                            <Link to='/#'> Fresh &amp; Frozen Meat</Link>
                           </li>
                         </ul>
                       </div>
@@ -1025,22 +1014,22 @@ const HeaderOne = () => {
                         </h6>
                         <ul className='submenus-submenu__list max-h-300 overflow-y-auto scroll-sm'>
                           <li>
-                            <Link to='/shop'> Oats &amp; Porridge</Link>
+                            <Link to='/#'> Oats &amp; Porridge</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Kids Cereal</Link>
+                            <Link to='/#'> Kids Cereal</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Muesli</Link>
+                            <Link to='/#'> Muesli</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Flakes</Link>
+                            <Link to='/#'> Flakes</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Granola &amp; Cereal Bars</Link>
+                            <Link to='/#'> Granola &amp; Cereal Bars</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Instant Noodles</Link>
+                            <Link to='/#'> Instant Noodles</Link>
                           </li>
                         </ul>
                       </div>
@@ -1073,19 +1062,19 @@ const HeaderOne = () => {
                         </h6>
                         <ul className='submenus-submenu__list max-h-300 overflow-y-auto scroll-sm'>
                           <li>
-                            <Link to='/shop'> Instant Noodles </Link>
+                            <Link to='/#'> Instant Noodles </Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Hakka Noodles</Link>
+                            <Link to='/#'> Hakka Noodles</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Cup Noodles</Link>
+                            <Link to='/#'> Cup Noodles</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Vermicelli</Link>
+                            <Link to='/#'> Vermicelli</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Instant Pasta</Link>
+                            <Link to='/#'> Instant Pasta</Link>
                           </li>
                         </ul>
                       </div>
@@ -1118,22 +1107,22 @@ const HeaderOne = () => {
                         </h6>
                         <ul className='submenus-submenu__list max-h-300 overflow-y-auto scroll-sm'>
                           <li>
-                            <Link to='/shop'> Salted Biscuits </Link>
+                            <Link to='/#'> Salted Biscuits </Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Marie, Health, Digestive</Link>
+                            <Link to='/#'> Marie, Health, Digestive</Link>
                           </li>
                           <li>
-                            <Link to='/shop'>
+                            <Link to='/#'>
                               {" "}
                               Cream Biscuits &amp; Wafers{" "}
                             </Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Glucose &amp; Milk biscuits</Link>
+                            <Link to='/#'> Glucose &amp; Milk biscuits</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Cookies</Link>
+                            <Link to='/#'> Cookies</Link>
                           </li>
                         </ul>
                       </div>
@@ -1166,25 +1155,25 @@ const HeaderOne = () => {
                         </h6>
                         <ul className='submenus-submenu__list max-h-300 overflow-y-auto scroll-sm'>
                           <li>
-                            <Link to='/shop'> Lemon, Ginger &amp; Garlic </Link>
+                            <Link to='/#'> Lemon, Ginger &amp; Garlic </Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Indian &amp; Exotic Herbs</Link>
+                            <Link to='/#'> Indian &amp; Exotic Herbs</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Orangic Vegetables</Link>
+                            <Link to='/#'> Orangic Vegetables</Link>
                           </li>
                           <li>
-                            <Link to='/shop'>Orangic Fruits </Link>
+                            <Link to='/#'>Orangic Fruits </Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Orangic Dry Fruits</Link>
+                            <Link to='/#'> Orangic Dry Fruits</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Orangic Dals &amp; pulses</Link>
+                            <Link to='/#'> Orangic Dals &amp; pulses</Link>
                           </li>
                           <li>
-                            <Link to='/shop'> Orangic Millet &amp; Flours</Link>
+                            <Link to='/#'> Orangic Millet &amp; Flours</Link>
                           </li>
                         </ul>
                       </div>
@@ -1248,7 +1237,7 @@ const HeaderOne = () => {
                     <ul className='on-hover-dropdown common-dropdown nav-submenu scroll-sm'>
                       <li className='common-dropdown__item nav-submenu__item'>
                         <NavLink
-                          to='/shop'
+                          to='/#'
                           className={(navData) =>
                             navData.isActive
                               ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage"
@@ -1453,6 +1442,9 @@ const HeaderOne = () => {
                       </li>
                     </ul>
                   </li> */}
+                  {isLoading ? "loading" : isAuthenticated && <li className='nav-menu__item'>
+                      Welcome <span style={{fontWeight: "bold"}}>{user.firstName}</span>
+                  </li>}
                   <li className='nav-menu__item'>
                     <NavLink
                       to='/contact'
@@ -1465,8 +1457,11 @@ const HeaderOne = () => {
                       Contact Us
                     </NavLink>
                   </li>
+                  {isLoading ? "loading" : isAuthenticated && <li className='nav-menu__item'>
+                    <button onClick={() => console.log("logout")}>Logout</button>
+                  </li>}
                   {/* Login Menu */}
-                  <li className='nav-menu__item'>
+                  {isLoading ? "loading" : !isAuthenticated && <li className='nav-menu__item'>
                     <Link
                       to='/login'
                       className='nav-menu__link'
@@ -1474,10 +1469,10 @@ const HeaderOne = () => {
                     >
                       Login
                     </Link>
-                  </li>
+                  </li>}
 
                   {/* register Menu */}
-                  <li className='nav-menu__item'>
+                  {isLoading ? "loading" : !isAuthenticated && <li className='nav-menu__item'>
                     <Link
                       to='/register'
                       className='nav-menu__link'
@@ -1485,7 +1480,7 @@ const HeaderOne = () => {
                     >
                       Register
                     </Link>
-                  </li>
+                  </li>}
 
                 </ul>
                 {/* Nav Menu End */}
@@ -1495,7 +1490,7 @@ const HeaderOne = () => {
             {/* Header Right start */}
             <div className='header-right flex-align'>
               <Link
-                to='/tel:01234567890'
+                // to='/tel:0123456789'
                 className='bg-main-600 text-white p-12 h-100 hover-bg-main-800 flex-align gap-8 text-lg d-lg-flex d-none'
               >
                 <div className='d-flex text-32'>
@@ -1514,7 +1509,7 @@ const HeaderOne = () => {
                       <i className='ph ph-magnifying-glass' />
                     </span>
                   </button>
-                  <Link to='/wishlist' className='flex-align gap-4 item-hover'>
+                  <Link to='/#' className='flex-align gap-4 item-hover'>
                     <span className='text-2xl text-gray-700 d-flex position-relative me-6 mt-6 item-hover__text'>
                       <i className='ph ph-heart' />
                       <span className='w-16 h-16 flex-center rounded-circle bg-main-600 text-white text-xs position-absolute top-n6 end-n4'>
@@ -1525,7 +1520,7 @@ const HeaderOne = () => {
                       Wishlist
                     </span>
                   </Link>
-                  <Link to='/cart' className='flex-align gap-4 item-hover'>
+                  <Link to='/#' className='flex-align gap-4 item-hover'>
                     <span className='text-2xl text-gray-700 d-flex position-relative me-6 mt-6 item-hover__text'>
                       <i className='ph ph-shopping-cart-simple' />
                       <span className='w-16 h-16 flex-center rounded-circle bg-main-600 text-white text-xs position-absolute top-n6 end-n4'>

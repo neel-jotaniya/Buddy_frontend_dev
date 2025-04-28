@@ -5,18 +5,20 @@ import { useNavigate } from 'react-router-dom';
 const DiscountCodePopup = ({ onClose, productId, setProduct, product }) => {
   const [isCodeRevealed, setIsCodeRevealed] = useState(false);
   const [discountCode, setDiscountCode] = useState('');
+  const [discount, setDiscount] = useState('');
 
     const navigate = useNavigate();
 
   const loadTheCode = async () => {
     try {
         const response = await axios.get(
-            `/api/v1/discounts/products/discount/${productId}`, 
+            `http://localhost:5000/api/discounts/${productId}/redeem`, 
             { withCredentials: true }
         );
         console.log(response);
         
-        setDiscountCode(response.data.code);
+        setDiscountCode(response.data.discount.name);
+      setDiscount(response.data.discount.discountPercentage);
         setIsCodeRevealed(true);
 
         setProduct(prev => {
@@ -96,6 +98,7 @@ const DiscountCodePopup = ({ onClose, productId, setProduct, product }) => {
                         />
                     </svg>
                 </button>
+                <span className="text-xl text-main-600" style={{fontWeight: 'bold', marginLeft: '10px'}}>{discount}% off</span>
 
 
                 </div>

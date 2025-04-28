@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RouteScrollToTop from "./helper/RouteScrollToTop";
 import HomePageOne from "./pages/HomePageOne";
@@ -24,15 +25,28 @@ import Register from "./pages/Register";
 import DiscountCodePopup from "./components/DiscountCodePopUp";
 import ProductDetailsPagethree from "./pages/ProductDetailsPageThree";
 import PaymentMain from "./pages/PaymentMain";
+import ProductDetails from "./components/ProductDetails";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
+import useAuthStore from "./store/authStore";
+import Preloader from "./helper/Preloader";
 // import './App.css';
 
 function App() {
+  const { initializeAuth } = useAuthStore();
+  const isLoading = useAuthStore((state) => state.isLoading);
+
+  React.useEffect(() => {
+    initializeAuth();
+  }, []);
+
+
   return (
     <BrowserRouter>
       <RouteScrollToTop />
       <PhosphorIconInit />
 
-      <Routes>
+      { isLoading === true  ? <Preloader message="Loading..." isLoading={isLoading}/> :
+        <Routes>
         <Route exact path='/' element={<HomePageOne />} />
         <Route exact path='/index-two' element={<HomePageTwo />} />
         <Route exact path='/index-three' element={<HomePageThree />} />
@@ -55,6 +69,11 @@ function App() {
           path='/product-details-coupon'
           element={<ProductDetailsPagethree />}
         />
+        <Route
+          exact
+          path='/product-details/:id'
+          element={<ProductDetailsPage />}
+        />
         <Route exact path='/cart' element={<CartPage />} />
         <Route exact path='/checkout' element={<CheckoutPage />} />
         <Route exact path='/become-seller' element={<BecomeSellerPage />} />
@@ -72,7 +91,7 @@ function App() {
           path='/vendor-two-details'
           element={<VendorTwoDetailsPage />}
         />
-      </Routes>
+      </Routes>}
     </BrowserRouter>
   );
 }

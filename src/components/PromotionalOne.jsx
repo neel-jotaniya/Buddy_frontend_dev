@@ -11,7 +11,7 @@ const PromotionalOne = () => {
     // instead of products fetch the promotion deals.
     const getAllProducts = async () => {
         try {
-            const products = await axios.get("/api/v1/discounts/products");
+            const products = await axios.get("http://localhost:5000/api/discounts", {withCredentials: true});
             // console.log(products);
             
             setDiscounts(products.data.discounts);

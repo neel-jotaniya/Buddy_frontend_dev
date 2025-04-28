@@ -15,6 +15,7 @@ function Register() {
     password: '',
     phone: '',
     countryCode: '',
+    status: 'pending',
     service: '',
     category: '',
     document: null,
@@ -118,14 +119,18 @@ function Register() {
       formDataToSend.append('documentName', formData.document.name);
       
       try {
-        const response = await fetch('/api/v1/user-requests/register', {
+        const response = await fetch('http://localhost:5000/api/auth/register', {
           method: 'POST',
           body: formDataToSend,
         });
-        // const data = await response.json();
-        // console.log(data);
-        
-        navigate('/login');
+        const data = await response.json();
+        console.log(data);
+        if (response.status === 200 || response.status === 201) {
+          navigate('/login');
+        }
+        else {
+          alert('Registration failed. Please try again.');
+        }
 
       } catch (error) {
         console.error('Registration error:', error);

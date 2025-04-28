@@ -13,11 +13,11 @@ const OrganicOne = () => {
 
     const getAllProducts = async () => {
         try {
-            const products = await axios.get("/api/v1/discounts/products");
+            const products = await axios.get("http://localhost:5000/api/coupons", { withCredentials: true });
             // console.log(products.data.coupons);
             
-            setDiscounts(products.data.discounts);
-            setCoupons(products.data.coupons);
+            setDiscounts(products.data);
+            setCoupons(products.data);
             // setUrlDiscounts(products.data.urlDiscounts);
         } catch (error) {
             console.log(error);            
@@ -134,7 +134,7 @@ const OrganicOne = () => {
                                 <div key={index}>
                                     <div className="product-card px-4 py-4 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
                                         <Link
-                                            to="/product-details"
+                                            to="/product-details-coupon"
                                             key={index}
                                             state={{ product: discount }}
                                             className="product-card__thumb flex-center"
@@ -152,7 +152,7 @@ const OrganicOne = () => {
                                         <div className="product-card__content mt-12">
                                             <h6 className="title text-lg fw-semibold mt-12 mb-8">
                                                 <Link
-                                                    to="/product-details"
+                                                    to="/product-details-coupon"
                                                     key={index}
                                                     state={{ product: discount }}
                                                     className="link text-line-2"

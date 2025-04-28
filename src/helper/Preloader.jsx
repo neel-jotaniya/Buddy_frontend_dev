@@ -1,21 +1,26 @@
 import { useEffect, useState } from "react";
 
-const Preloader = () => {
-  let [active, setActive] = useState(true);
+const Preloader = ({ message, isLoading }) => {
+  // let [active, setActive] = useState(true);
+  // useEffect(() => {
+  //   setTimeout(function () {
+  //     setActive(false);
+  //   }, 500);
+  // }, []);
+
   useEffect(() => {
-    setTimeout(function () {
-      setActive(false);
-    }, 500);
-  }, []);
+  }, [isLoading]);
 
   return (
     <>
-      {active ? (
+      {isLoading ? (
         <div className="preloader">
           <img src="assets/images/icon/Fountain.gif" alt="" />
         </div>
 
-      ) : (<div></div>)}
+      ) : (
+        <div></div>
+      )}
     </>
   );
 };

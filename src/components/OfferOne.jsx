@@ -29,7 +29,8 @@ const OfferOne = () => {
                                     <span className="text-sm text-main-two-600">expired Aug 5</span>
                                 </div>
                                 <Link
-                                    to="/shop"
+                                    // to="/shop"
+                                    to="#"
                                     className="mt-16 btn bg-white hover-text-white hover-bg-main-800 text-heading fw-medium d-inline-flex align-items-center rounded-pill gap-8"
                                     tabIndex={0}
                                 >
@@ -63,7 +64,8 @@ const OfferOne = () => {
                                     <span className="text-sm text-main-two-600">expired Aug 5</span>
                                 </div>
                                 <Link
-                                    to="/shop"
+                                    // to="/shop"
+                                    to="#"
                                     className="mt-16 btn bg-white hover-text-white hover-bg-main-800 text-heading fw-medium d-inline-flex align-items-center rounded-pill gap-8"
                                     tabIndex={0}
                                 >

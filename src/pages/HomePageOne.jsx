@@ -53,7 +53,7 @@ const HomePageOne = () => {
       <FlashSalesOne />
 
       {/* ProductListOne */}
-      <ProductListOne />
+      {/* <ProductListOne /> */}
 
       {/* OfferOne */}
       <OfferOne />
@@ -68,7 +68,7 @@ const HomePageOne = () => {
       <TopVendorsOne />
 
       {/* BestSellsOne */}
-      <BestSellsOne />
+      {/* <BestSellsOne /> */}
 
       {/* DeliveryOne */}
       <DeliveryOne />
@@ -83,7 +83,7 @@ const HomePageOne = () => {
       {/* <BrandOne /> */}
 
       {/* NewArrivalOne */}
-      <NewArrivalOne />
+      {/* <NewArrivalOne /> */}
 
       {/* ShippingOne */}
       <ShippingOne />

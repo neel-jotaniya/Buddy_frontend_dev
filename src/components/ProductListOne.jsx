@@ -10,12 +10,12 @@ const ProductListOne = () => {
 
     const getAllProducts = async () => {
         try {
-            const products = await axios.get("/api/v1/discounts/products");
+            const products = await axios.get("/api/discounts");
             setDiscounts(products.data[0]);
             setCoupons(products.data[1]);
             setUrlDiscounts(products.data[2]);
         } catch (error) {
-            console.log(error);
+            console.log(error);            
         }
     }
 

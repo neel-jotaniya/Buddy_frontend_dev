@@ -10,11 +10,10 @@ const CouponCodePopup = ({ onClose, productId, setProduct, product }) => {
     const loadTheCode = async () => {
       try { 
           const response = await axios.get(
-              `/api/v1/discounts/products/coupon/${productId}`, 
-              { withCredentials: true }
-          );
-
-          setDiscountCode(response.data.code);
+            `http://localhost:5000/api/coupons/${productId}/redeem`, { withCredentials: true });
+          console.log(response);
+          
+          setDiscountCode(response.data.couponCode);
           setIsCodeRevealed(true);  
 
           setProduct(prev => {

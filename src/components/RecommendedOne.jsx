@@ -4530,11 +4530,10 @@ const RecommendedOne = () => {
 
     const getAllProducts = async () => {
         try {
-            const products = await axios.get("/api/v1/discounts/products");
-            // console.log(products.data.coupons);
+            const products = await axios.get("http://localhost:5000/api/discounts/", { withCredentials: true });
             
-            setDiscounts(products.data.discounts);
-            setCoupons(products.data.coupons);
+            setDiscounts(products.data);
+            // setCoupons(products.data);
             // setUrlDiscounts(products.data.urlDiscounts);
         } catch (error) {
             console.log(error);            
@@ -4633,7 +4632,7 @@ const RecommendedOne = () => {
                 </div>
                 <div className="organic-food__slider arrow-style-two">
                     <Slider {...settings}>
-                        {coupons?.map((discount, index) => {
+                        {discouts?.map((discount, index) => {
                             const toggleDescription = () => {
                                 setIsDiscriptionExpanded(!isExpanded);
                             };
@@ -4651,16 +4650,36 @@ const RecommendedOne = () => {
                                 <div key={index}>
                                     <div className="product-card px-4 py-4 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
                                         <Link
-                                            to="/product-details-coupon"
+                                            to="/product-details"
                                             key={index}
                                             state={{ product: discount }}
                                             className="product-card__thumb flex-center"
                                         >
-                                            {/* <img src="assets/images/thumbs/product-img20.png" alt="" /> */}
-                                            <img src={discount.images[0]} alt="Image" style={{ width: '142px', height: '160px', objectFit: 'cover' }} />
-
+                                            <div style={{
+                                                width: '100%',
+                                                paddingBottom: '100%', /* Creates a square aspect ratio */
+                                                position: 'relative',
+                                                overflow: 'hidden',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center'
+                                            }}>
+                                                <img 
+                                                    src={discount.images[0]} 
+                                                    alt="Image" 
+                                                    style={{ 
+                                                        position: 'absolute',
+                                                        top: '50%',
+                                                        left: '50%',
+                                                        transform: 'translate(-50%, -50%)', /* Centers the image perfectly */
+                                                        width: '100%',
+                                                        height: '100%',
+                                                        objectFit: 'cover' /* This will crop the image to fill the square */
+                                                    }} 
+                                                />
+                                            </div>
                                         </Link>
-                                        
+                                                                                
                                         <div style={{ width: '100%' }}>
                                             <hr style={{ height: '1px', backgroundColor: 'gray', border: 'none', width: '100%', margin: '0' }} />
                                         </div>
@@ -4669,7 +4688,7 @@ const RecommendedOne = () => {
                                         <div className="product-card__content mt-12">
                                             <h6 className="title text-lg fw-semibold mt-12 mb-8">
                                                 <Link
-                                                    to="/product-details-coupon"
+                                                    to="/product-details"
                                                     key={index}
                                                     state={{ product: discount }}
                                                     className="link text-line-2"

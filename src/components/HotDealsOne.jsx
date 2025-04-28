@@ -108,7 +108,7 @@ const HotDealsOne = () => {
                                 <div className="countdown my-32" id="countdown4">
                                     <ul className="countdown-list flex-center flex-wrap">
                                         <li className="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium colon-white">
-                                            <span className="days" />
+                                            <span className="da ys" />
                                             {timeLeft.days} Days
                                         </li>
                                         <li className="countdown-list__item text-heading flex-align gap-4 text-sm fw-medium colon-white">
@@ -126,7 +126,7 @@ const HotDealsOne = () => {
                                     </ul>
                                 </div>
                                 <Link
-                                    to="/shop"
+                                    // to="/shop"
                                     className="mt-16 btn btn-main-two fw-medium d-inline-flex align-items-center rounded-pill gap-8"
                                     tabIndex={0}
                                 >
@@ -185,7 +185,7 @@ const HotDealsOne = () => {
                                                     <span className="text-xs fw-bold text-gray-600">(17k)</span>
                                                 </div>
                                                 <Link
-                                                    to="/cart"
+                                                    // to="/cart"
                                                     className="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center"
                                                 >
                                                     Add To Cart <i className="ph ph-shopping-cart" />
@@ -237,7 +237,7 @@ const HotDealsOne = () => {
                                                     <span className="text-xs fw-bold text-gray-600">(17k)</span>
                                                 </div>
                                                 <Link
-                                                    to="/cart"
+                                                    //to="/cart"
                                                     className="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8 mt-24 w-100 justify-content-center"
                                                 >
                                                     Add To Cart <i className="ph ph-shopping-cart" />
