@@ -97,6 +97,15 @@ const OrganicOne = () => {
             },
         ],
     };
+
+    const getRemainingDays = (endDate) => {
+        const today = new Date();
+        const end = new Date(endDate);
+        const diffTime = end - today;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays;
+    };
+
     return (
         <section className="organic-food py-80">
             <div className="container container-lg">
@@ -129,6 +138,9 @@ const OrganicOne = () => {
                             products = products.length > 20
                                 ? products.substring(0, 20) + "..."
                                 : products;
+
+                            const remainingDays = getRemainingDays(discount.endDate);
+                            const isExpiringSoon = remainingDays <= 10;
 
                             return (
                                 <div key={index}>
@@ -189,20 +201,15 @@ const OrganicOne = () => {
                                                         {discount.discount}% Off
                                                     </span>
                                                 </div>
-                                                {/* <Link
-                                                    to="/cart"
-                                                    className="product-card__cart btn bg-main-50 text-main-600 hover-bg-main-600 hover-text-white py-11 px-24 rounded-pill flex-align gap-8"
-                                                >
-                                                    Add <i className="ph ph-shopping-cart" />
-                                                </Link> */}
+                                                <div className={`text-sm px-3 py-1 rounded-pill ${isExpiringSoon ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-600'}`} style={{backgroundColor: isExpiringSoon ? 'red' : 'gray', color: 'white'}}>
+                                                    <span style={{color: isExpiringSoon ? 'white' : 'black', marginRight: '5px', marginLeft: '5px'}}>Ends in {remainingDays} days</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             );
-                        })}
-
-                        
+                        })} 
                     </Slider>
                 </div>
             </div>

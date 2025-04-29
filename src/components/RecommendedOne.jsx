@@ -4613,6 +4613,15 @@ const RecommendedOne = () => {
             },
         ],
     };
+
+    const getRemainingDays = (endDate) => {
+        const today = new Date();
+        const end = new Date(endDate);
+        const diffTime = end - today;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays;
+    };
+
     return (
         <section className="organic-food py-80">
             <div className="container container-lg">
@@ -4645,6 +4654,9 @@ const RecommendedOne = () => {
                             products = products.length > 20
                                 ? products.substring(0, 20) + "..."
                                 : products;
+
+                            const remainingDays = getRemainingDays(discount.endDate);
+                            const isExpiringSoon = remainingDays <= 10;
 
                             return (
                                 <div key={index}>
@@ -4711,7 +4723,7 @@ const RecommendedOne = () => {
                                                 {isDescriptionExpanded ? discount.description : shortDescription}
                                                 {discount.description.length > 15 && (
                                                     <button 
-                                                        onClick={toggleDescription} 
+                                                        // onClick={toggleDescription} 
                                                         className="text-main-600 text-xs fw-bold ml-2 border-none bg-transparent cursor-pointer"
                                                     >
                                                         {isDescriptionExpanded ? " less" : " more"}
@@ -4724,6 +4736,9 @@ const RecommendedOne = () => {
                                                     <span className="text-heading text-xl fw-bold">
                                                         {discount.discount}% Off
                                                     </span>
+                                                </div>
+                                                <div className={`text-sm px-3 py-1 rounded-pill ${isExpiringSoon ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-600'}`} style={{ backgroundColor: isExpiringSoon ? 'red' : 'gray', color: 'white' }}>
+                                                    <span style={{ color: isExpiringSoon ? 'white' : 'black', marginRight: '5px', marginLeft: '5px' }}>Ends in {remainingDays} days</span>
                                                 </div>
                                                 {/* <Link
                                                     to="/cart"
