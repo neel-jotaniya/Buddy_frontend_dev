@@ -69,7 +69,8 @@ const BannerOne = () => {
                                             Daily Grocery Order and Get Express Delivery
                                         </h1>
                                         <Link
-                                            to="/shop"
+                                            // to="/shop"
+                                            
                                             className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8"
                                         >
                                             Explore Shop{" "}

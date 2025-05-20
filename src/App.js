@@ -39,6 +39,11 @@ function App() {
     initializeAuth();
   }, []);
 
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  React.useEffect(() => {
+
+  }, [isAuthenticated]);
+
 
   return (
     <BrowserRouter>

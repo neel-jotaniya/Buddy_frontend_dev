@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import query from "jquery";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import SearchComponent from "./SearchComponent";
 import useAuthStore from "../store/authStore";
+import axios from "axios";
 
 const HeaderOne = () => {
   const [scroll, setScroll] = useState(false);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const isLoading = useAuthStore((state) => state.isLoading);
   const user = useAuthStore((state) => state.user);
+  const navigate = useNavigate();
   useEffect(() => {
 
     window.onscroll = () => {
@@ -66,6 +68,30 @@ const HeaderOne = () => {
   const handleCatClick = (index) => {
     setActiveIndexCat(activeIndexCat === index ? null : index);
   };
+
+  const logOut = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/auth/logout', {
+        withCredentials: true
+      });
+      console.log(response);
+      if (response.status === 200) {
+        localStorage.removeItem("okay");
+        navigate('/login');
+      }
+    } catch (error) {
+      // log error
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    
+  }, [isAuthenticated]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -1458,7 +1484,7 @@ const HeaderOne = () => {
                     </NavLink>
                   </li>
                   {isLoading ? "loading" : isAuthenticated && <li className='nav-menu__item'>
-                    <button onClick={() => console.log("logout")}>Logout</button>
+                    <button onClick={logOut}>Logout</button>
                   </li>}
                   {/* Login Menu */}
                   {isLoading ? "loading" : !isAuthenticated && <li className='nav-menu__item'>
